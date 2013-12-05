@@ -9,11 +9,11 @@ namespace XPathQuery
 	{
 		public static void Main (string[] args)
 		{
-			string query = string.Join(" ",args);
+			var query = string.Join(" ",args);
 
 		    try
 		    {
-		        XDocument input = XDocument.Parse(Console.In.ReadToEnd());
+		        var input = XDocument.Parse(Console.In.ReadToEnd());
 
 		        try
 		        {
