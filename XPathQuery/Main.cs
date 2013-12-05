@@ -9,22 +9,23 @@ namespace XPathQuery
 	{
 		public static void Main (string[] args)
 		{
-			var query = string.Join(" ",args);
-
 		    try
 		    {
 		        var input = XDocument.Parse(Console.In.ReadToEnd());
 
-		        try
+		        foreach (var query in args)
 		        {
-		            var res = (IEnumerable) input.XPathEvaluate(query);
+		            try
+		            {
+		                var res = (IEnumerable) input.XPathEvaluate(query);
 
-		            foreach (var el in res)
-		                Console.WriteLine(el.ToString());
-		        }
-		        catch (Exception e)
-		        {
-		            Console.WriteLine(e.ToString());
+		                foreach (var el in res)
+		                    Console.WriteLine(el.ToString());
+		            }
+		            catch (Exception e)
+		            {
+		                Console.WriteLine(e.ToString());
+		            }
 		        }
 		    }
 		    catch (Exception e)
